@@ -34,7 +34,7 @@
                 <div class="notification-bar">
                     <i class="far fa-bell"></i>
                     <i class="fas fa-plus"></i>
-                    <img src="./assets/icons/github-icon.svg" alt="='avatar'" />
+                    <img src="./assets/icons/github-icon.svg" alt="avatar" class="user__avatar" />
                 </div>
             </div>
         </nav>
@@ -65,12 +65,12 @@
             <!-- <div class="repository__wrapper"> -->
             <div class="sidebar">
                 <div class="avatar">
-                    <img src='./assets/icons/github-icon.svg' alt="avatar" />
+                    <img class="user__avatar" src='./assets/icons/github-icon.svg' alt="avatar" />
                 </div>
                 <div class="sidebar__profile-summary">
-                    <h2>Temitope Ayodele</h2>
-                    <p class="username">temmietope</p>
-                    <p class="job-title">Front-end Developer</p>
+                    <h2 class="user__fullname">Temitope Ayodele</h2>
+                    <p class="user__username">temmietope</p>
+                    <p class="user__bio">Front-end Developer</p>
                 </div>
 
                 <button class="edit-button">Edit Profile</button>
@@ -91,25 +91,25 @@
                     </li>
                 </ul>
 
-                <ul class="location">
+                <ul class="location__div">
                     <li>
                         <i class="far fa-building"></i>
-                        <p>Voguepay</p>
+                        <p class="company">Voguepay</p>
                     </li>
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Nigeria</p>
+                        <p class="location">Nigeria</p>
                     </li>
                     <li>
                         <i class="fas fa-link"></i>
-                        <p>http.tghrfjedsk.com</p>
+                        <p class="website__url">http.tghrfjedsk.com</p>
                     </li>
                     <li>
                         <i class="fab fa-twitter"></i>
                         <p>@temmie_</p>
                     </li>
                 </ul>
-                <div class="highlights">
+                <!-- <div class="highlights">
                     <h4>Highlights</h4>
                     <div class="highlight__details">
                         <i class="fas fa-asterisk"></i>
@@ -120,7 +120,7 @@
                 <div class="organizations highlights">
                     <h4>Organizations</h4>
 
-                </div>
+                </div> -->
             </div>
             <div class="repository">
                 <div class="repository__find-and-create">
@@ -136,7 +136,9 @@
                     <button class="green">
                         <span>New</span>
                     </button>
-                </div>>
+                </div>
+                <div class="repository__list">
+                </div>
             </div>
         </div>
     </div>

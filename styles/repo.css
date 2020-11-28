@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: 25% auto;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   position: relative;
   --overview-nav-height: 4.5rem;
   padding: 0 5rem;
@@ -31,10 +31,12 @@
 .overview-nav ul {
   display: flex;
   width: 100%;
+  align-items: flex-end;
 }
 
 .overview-nav ul li {
   padding: 0.7rem;
+  line-height: 0;
   display: flex;
   align-items: center;
   color: #2f363d;
@@ -67,13 +69,14 @@
   height: 18rem;
   width: 18rem;
   border-radius: 50%;
-  border: 1px solid;
   background-color: #fff;
 }
 
 .repository__wrapper .sidebar .avatar img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+
   /* object-fit: fill; */
   /* object-fit: contain; */
 }
@@ -86,12 +89,12 @@
   font-size: 1.625rem;
 }
 
-.repository__wrapper .sidebar .sidebar__profile-summary p.username {
+.repository__wrapper .sidebar .sidebar__profile-summary p.user__username {
   font-size: 1.25rem;
   color: #586069;
 }
 
-.repository__wrapper .sidebar .sidebar__profile-summary p.job-title {
+.repository__wrapper .sidebar .sidebar__profile-summary p.user__bio {
   font-size: 1.15rem;
   margin-top: 1.2rem;
 }
@@ -139,23 +142,27 @@
   margin-right: 0.2rem;
 }
 
-.repository__wrapper .sidebar .location {
+.repository__wrapper .sidebar .location__div {
   border-bottom: 1px solid rgba(225, 225, 232, 0.9);
   padding: 2rem 0;
 }
 
-.repository__wrapper .sidebar .location li {
+.repository__wrapper .sidebar .location__div li {
   color: #333;
   display: flex;
   align-items: center;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
   font-size: 0.9rem;
 }
 
-.repository__wrapper .sidebar .location li i {
+.repository__wrapper .sidebar .location__div li i {
   margin-right: 0.5rem;
 }
-
+.repository__wrapper .sidebar .location__div .website__url {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .repository__wrapper .sidebar .highlights {
   padding: 2rem 0;
 }
@@ -217,4 +224,79 @@
 .repository__wrapper .repository .repository__find-and-create button.green {
   background-color: #2c974b;
   color: white;
+}
+
+.repository__wrapper .repository__list .repository__single {
+  padding: 1.5rem 0;
+  /* display: grid;
+    grid-template-columns: auto 20%;
+    grid-column-gap: 30%; */
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(225, 225, 232, 0.9);
+}
+
+.repository__wrapper .repository__list .repository__single-details {
+  width: 55%;
+  color: #586069;
+}
+
+.repository__wrapper .repository__list .repository__single-details h4 {
+  font-size: 1.5rem;
+  color: #0366d6;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.repository__wrapper .repository__list .repository__single-details .summary {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}
+.repository__wrapper
+  .repository__list
+  .repository__single-details
+  .stars-and-date {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.repository__wrapper
+  .repository__list
+  .repository__single-details
+  .stars-and-date
+  p {
+  margin-right: 0.7rem;
+}
+
+.language,
+.star-gazers {
+  display: flex;
+  align-items: center;
+}
+.language__color {
+  background-color: red;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.language__color,
+.stargazers i {
+  margin-right: 0.3rem;
+}
+
+.repository__single button {
+  padding: 0.4rem 0.9rem;
+  color: #24292e;
+  background-color: #fafbfc;
+  border-radius: 6px;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+.repository__single button i {
+  margin-right: 0.3rem;
 }
