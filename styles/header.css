@@ -1,0 +1,31 @@
+/* .overview-nav {
+  height: 5rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(37, 36, 36, 0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.overview-nav ul {
+  display: flex;
+}
+.overview-nav ul li {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  color: #2f363d;
+  font-size: 0.9rem;
+}
+.overview-nav ul li img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.overview-nav ul li:hover {
+  border-bottom: 2.5px solid rgba(0, 0, 0, 0.4);
+}
+.overview-nav ul li.active {
+  color: #24292e;
+  border-bottom: 2.5px solid #f9826c;
+  font-weight: 600;
+} */
