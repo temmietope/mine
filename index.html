@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Repositories</title>
     <link href="./styles/body.css" type="text/css" rel="stylesheet" />
-    <link href="./styles/header.css" type="text/css" rel="stylesheet" />
     <link href="./styles/navbar.css" type="text/css" rel="stylesheet" />
+    <link href="./styles/sidebar.css" type="text/css" rel="stylesheet" />
+    <link href="./styles/footer.css" type="text/css" rel="stylesheet" />
     <link href="./styles/repo.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
@@ -48,7 +49,7 @@
 
         <div class="repository__wrapper">
 
-            <!-- <div class="repository__wrapper"> -->
+            <!-- Sidebar -->
             <div class="sidebar">
                 <div class="user__profilecard">
                     <div class="avatar">
@@ -118,23 +119,18 @@
                         <i class="fas fa-asterisk"></i>
                         <p>Arctic Code Vault Contributor</p>
                     </div>
-
-                </div>
-                <div class="organizations highlights">
-                    <h4>Organizations</h4>
-
                 </div>
             </div>
             <div class="overview-nav">
                 <div class="pseudo">
                     <div class="mini-avatar-wrapper">
 
-                    <div class="mini-avatar">
-                        <img class="user__avatar" src="./assets/icons/github-icon.svg" alt="avatar" />
-                    </div>
-                    <strong>
-                        <p class="user__username"></p>
-                    </strong>
+                        <div class="mini-avatar">
+                            <img class="user__avatar" src="./assets/icons/github-icon.svg" alt="avatar" />
+                        </div>
+                        <strong>
+                            <p class="user__username"></p>
+                        </strong>
                     </div>
 
                 </div>
@@ -174,9 +170,27 @@
                         <span class="createnew"><img src="./assets/icons/createnew-icon.svg" alt="icon" />New</span>
                     </button>
                 </div>
+                <!-- Repolist -->
                 <div class="repository__list"></div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer>
+            <i class="fab fa-github footer__icon"></i>
+            <p>&copy; 2020 GitHub, Inc.</p>
+            <a href="">Terms</a>
+            <a href="">Privacy</a>
+            <a href="">Security</a>
+            <a href="">Status</a>
+            <a href="">Help</a>
+            <a href="">Contact GitHub</a>
+            <a href="">Pricing</a>
+            <a href="">API</a>
+            <a href="">Training</a>
+            <a href="">Blog</a>
+            <a href="">About</a>
+        </footer>
     </div>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/timeAgo.js"></script>

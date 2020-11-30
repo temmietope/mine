@@ -6,7 +6,7 @@ nav {
   padding: 2rem 2rem;
   background-color: #24292e;
   --margin: 1rem;
-  --hover-brightness: 0.7;
+  --hover-brightness: 0.8;
 }
 
 nav .nav__wrapper {
@@ -107,21 +107,32 @@ i {
   cursor: pointer;
 }
 
+.notification-bar i {
+  font-size: 1rem;
+  color: white;
+}
+
+.notification-bar .with-arrow.plus i {
+  color: rgb(235, 231, 231);
+  font-size: 0.89rem;
+}
+
 .nav__wrapper-search ul li:hover,
 .notification-bar .with-arrow.plus:hover,
 i:hover {
   filter: brightness(var(--hover-brightness));
 }
 
-.notification-bar i {
-  font-size: 1rem;
-  color: white;
+.notification-bar img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
 }
 
-.notification-bar img {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
+.user__avatar {
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(225, 225, 232, 0.9);
 }
 
 /* Media Queries */

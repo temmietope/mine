@@ -1,26 +1,20 @@
 .repository__wrapper {
-  /* width: 100%;
-  display: grid;
-  grid-template-columns: 25% auto; */
   grid-gap: 2rem;
   position: relative;
   --overview-nav-height: 4.5rem;
   --sidebar-width: 25%;
   --repo-padding: 3rem;
-  /* padding: 0 5rem; */
+  min-height: 100vh;
 }
 
 .overview-nav {
-  /* position: absolute; */
   position: sticky;
   top: 0;
   left: 0;
-  /* height: var(--overview-nav-height); */
   width: 100%;
   border-bottom: 1px solid rgba(225, 225, 232, 0.9);
   z-index: 1;
   background: #fff;
-  /* padding: 0 5rem; */
   display: grid;
   grid-template-columns: var(--sidebar-width) auto;
 }
@@ -32,6 +26,7 @@
 .overview-nav .pseudo .mini-avatar-wrapper {
   display: none;
 }
+
 .overview-nav .pseudo .mini-avatar-wrapper.show {
   width: 100%;
   display: flex;
@@ -92,6 +87,7 @@
   display: flex;
   align-items: center;
 }
+
 .overview-nav ul li.active .repo__count {
   border-radius: 50%;
   border: 1px solid transparent;
@@ -113,194 +109,9 @@
   background-color: #f9826c;
 }
 
-.repository__wrapper .sidebar {
-  /* width: 100%; */
-  padding-top: 3rem;
-  padding-left: var(--repo-padding);
-  padding-right: calc(var(--repo-padding) / 2);
-  position: absolute;
-  top: -2rem;
-  left: 0;
-  width: var(--sidebar-width);
-}
-
-.repository__wrapper .sidebar .user__profilecard {
-  display: block;
-}
-
-.repository__wrapper .sidebar .avatar {
-  /* height: 18rem;
-  width: 18rem; */
-  border-radius: 50%;
-  background-color: #fff;
-  position: relative;
-  z-index: 2;
-}
-
-.repository__wrapper .sidebar .avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.repository__wrapper .sidebar .avatar .user__status {
-  position: absolute;
-  bottom: 2rem;
-  left: 82%;
-  border: white;
-  transition: all 0.5s;
-  border-radius: 100px 100px;
-  display: flex;
-  align-items: center;
-  padding: 0.05rem 0.4rem;
-  color: #555758ea;
-  background-color: #fff;
-  height: 1.8rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-  box-shadow: 0 0 0 1px #5557584d;
-}
-
-.repository__wrapper .sidebar .avatar .user__status p {
-  display: none;
-  margin-left: 0.3rem;
-  transition: all 0.5s;
-}
-
-.repository__wrapper .sidebar .avatar .user__status:hover p {
-  opacity: 1;
-  display: flex;
-  width: 4rem;
-}
-.repository__wrapper .sidebar .avatar .user__status:hover p:hover {
-  color: #0366d6;
-}
-
-.repository__wrapper .sidebar .sidebar__profile-summary {
-  margin: 1rem 0;
-}
-
-.repository__wrapper .sidebar .sidebar__profile-summary h2 {
-  font-size: 1.625rem;
-  opacity: 1;
-}
-
-.repository__wrapper .sidebar .sidebar__profile-summary p.user__username {
-  font-size: 1.25rem;
-  color: #586069;
-}
-
-.repository__wrapper .sidebar .sidebar__profile-summary p.user__bio {
-  font-size: 1.15rem;
-  margin-top: 1.2rem;
-}
-
-.repository__wrapper .sidebar .mini-status,
-.mini-link {
-  display: none;
-}
-.repository__wrapper .sidebar .edit-button {
-  width: 100%;
-  text-align: center;
-  padding: 0.6rem;
-  margin: 1rem 0;
-  background-color: #fafbfc;
-  font-size: 0.8rem;
-  border: 1px solid rgba(225, 225, 232, 0.9);
-  border-radius: 5px;
-  outline: none;
-}
-
-.repository__wrapper .sidebar .edit-button:hover {
-  border: rgba(27, 31, 37, 0.15);
-  background-color: #f3f4f6;
-}
-
-.repository__wrapper .sidebar .followership {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.repository__wrapper .sidebar .followership li {
-  display: flex;
-  align-items: center;
-  color: #586069;
-}
-
-.repository__wrapper .sidebar .followership li:nth-child(2) {
-  padding: 0 0.4rem;
-  margin: 0 0.4rem;
-}
-
-.repository__wrapper .sidebar .followership li i {
-  margin-right: 0.5rem;
-}
-
-.repository__wrapper .sidebar .followership li .value {
-  font-weight: 700;
-  color: #222;
-  margin-right: 0.2rem;
-}
-
-.repository__wrapper .sidebar .location__div {
-  border-bottom: 1px solid rgba(225, 225, 232, 0.9);
-  padding: 2rem 0;
-}
-
-.repository__wrapper .sidebar .location__div li {
-  color: #333;
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.4rem;
-  font-size: 0.9rem;
-}
-
-.repository__wrapper .sidebar .location__div li i {
-  margin-right: 0.5rem;
-}
-.repository__wrapper .sidebar .location__div .website__url {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.website__url,
-.twitter__username {
-  color: inherit;
-  text-decoration: none;
-}
-
-.website__url:hover,
-.twitter__username:hover {
-  color: blue;
-  text-decoration: underline;
-}
-
-.repository__wrapper .sidebar .highlights {
-  padding: 2rem 0;
-}
-
-.repository__wrapper .sidebar .highlights h4 {
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
-}
-
-.repository__wrapper .sidebar .highlights .highlight__details {
-  display: flex;
-  align-items: center;
-}
-
-.repository__wrapper .sidebar .highlights .highlight__details i {
-  margin-right: 0.8rem;
-}
-
 .repository__wrapper .repository {
-  /* display: grid;
-  grid-template-columns: var(--sidebar-width) auto; */
   margin-left: var(--sidebar-width);
   padding-right: var(--repo-padding);
-  /* margin-top: var(--overview-nav-height); */
   position: relative;
 }
 
@@ -309,9 +120,6 @@
   padding: 0.7rem 0;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(225, 225, 232, 0.9);
-  /* display: grid;
-  grid-template-columns: 60% auto auto auto;
-  grid-column-gap: 1%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -361,6 +169,7 @@
   filter: brightness(0.9);
   cursor: pointer;
 }
+
 .repository__wrapper
   .repository
   .repository__find-and-create
@@ -384,6 +193,7 @@
   display: flex;
   align-items: center;
 }
+
 .repository__wrapper
   .repository
   .repository__find-and-create
@@ -426,6 +236,7 @@
   font-size: 0.9rem;
   line-height: 1.2rem;
 }
+
 .repository__wrapper
   .repository__list
   .repository__single-details
@@ -451,6 +262,7 @@
   display: flex;
   align-items: center;
 }
+
 .language__color {
   background-color: red;
   width: 0.7rem;
@@ -522,86 +334,12 @@
     padding: 0;
   }
 
-  .repository__wrapper .sidebar {
-    padding: 0 1rem;
-    padding-top: 3rem;
-    z-index: 2;
-    height: inherit;
-    margin-bottom: 2rem;
-    position: relative;
-    width: 100%;
-  }
-
-  .repository__wrapper .sidebar .user__profilecard {
-    display: grid;
-    grid-template-columns: 25% auto;
-    grid-column-gap: 2%;
-    align-items: center;
-    width: 100%;
-    height: inherit;
-  }
-
-  .repository__wrapper .sidebar .avatar .avater-img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .repository__wrapper .sidebar .user__profilecard .user__bio {
-    display: none;
-  }
-
-  .repository__wrapper .sidebar .avatar .user__status {
-    display: none;
-  }
-
-  .repository__wrapper .sidebar .mini-status,
-  .mini-link {
-    display: block;
-  }
-
-  .repository__wrapper .sidebar .mini-link {
-    color: #333;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.7rem;
-    font-size: 0.9rem;
-  }
-
-  .repository__wrapper .sidebar .mini-link i {
-    margin-right: 0.5rem;
-  }
-
-  .repository__wrapper .sidebar .mini-status button {
-    width: 100%;
-    text-align: center;
-    padding: 0.6rem;
-    margin: 1rem 0;
-    background-color: #fff;
-    font-size: 0.8rem;
-    border: 1px solid rgba(225, 225, 232, 0.8);
-    border-radius: 5px;
-    outline: none;
-    display: flex;
-    align-items: center;
-    color: #555758ea;
-  }
-
-  .repository__wrapper .sidebar .mini-status button i {
-    margin-right: 1%;
-  }
-
-  .location__div,
-  .highlights {
-    display: none;
-  }
-
   .overview-nav {
     display: block;
     padding: 0;
     height: inherit;
     padding: 0 1rem;
     width: 100%;
-    /* border: 1px solid; */
   }
 
   .overview-nav ul {
@@ -618,12 +356,12 @@
   }
 
   .repository__wrapper .repository .repository__find-and-create {
-    /* display: block; */
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
     height: inherit;
   }
+
   .repository__wrapper .repository .repository__find-and-create > * {
     margin-bottom: 1%;
   }
@@ -633,8 +371,8 @@
     padding: 0.5rem 0.7rem;
     margin-right: 0;
   }
+
   .repository__wrapper .repository .repository__find-and-create button.green {
-    /* align-self: flex-end; */
     margin-left: auto;
   }
 }
@@ -645,14 +383,14 @@
     overflow-x: scroll;
     overflow-y: hidden;
   }
+
   .overview-nav ul {
     min-width: 449px;
     padding: 0 1rem;
-    /* overflow-x: scroll; */
-
     display: flex;
     justify-content: space-between;
   }
+
   .overview-nav ul li {
     padding: 0.9rem 0.5rem;
   }
@@ -665,9 +403,11 @@
   .repository__wrapper .repository__list .repository__single-details {
     width: 75%;
   }
+
   .repository__wrapper .repository__list .repository__single-details h4 {
     line-height: 1.8rem;
   }
+
   .repository__single button {
     padding: 0.3rem 0.4rem;
   }
@@ -677,8 +417,8 @@
   .repository {
     padding: 0.5rem;
   }
+
   .repository__wrapper .repository .repository__find-and-create button.green {
-    /* align-self: flex-end; */
     margin-left: 0;
   }
 
