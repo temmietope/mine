@@ -5,7 +5,7 @@ const DATA = {
     bio
     avatarUrl
     name
-    repositories(first: 20, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
+    repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}, privacy: PUBLIC) {
       nodes {
         createdAt
         updatedAt
@@ -76,7 +76,7 @@ window.onresize = () => {
 }
 
 const user__avatar = document.querySelectorAll('.user__avatar')
-const avatar = document.querySelector('.avatar-img')
+// const avatar = document.querySelector('.avatar-img')
 const mini__avatar = document.querySelector('.mini-avatar-wrapper')
 const user__fullname = document.querySelector('.user__fullname')
 const user__username = document.querySelectorAll('.user__username')
@@ -91,16 +91,7 @@ const user__twitter = document.querySelector('.twitter__username')
 const user__repositories = document.querySelector('.repository__list')
 const user__repocount = document.querySelector('.repo__count')
 
-window.onscroll = () => {
-  let offset = avatar.getBoundingClientRect()
-  if (offset.top < -150) {
-    mini__avatar.classList.add('show')
-  }
-  if (offset.top > -150) {
-    mini__avatar.classList.remove('show')
-  }
-}
-
+// Function to Fetch data and Populate
 const fetchData = async () => {
   const res = await fetch(URL, OPTIONS)
   const data = await res.json()
@@ -224,6 +215,17 @@ const checkDate = (created, updated) => {
     return `Created on ${timeAgo(created)}`
   } else {
     return `Updated ${timeAgo(updated)}`
+  }
+}
+
+// Set username to topnav
+window.onscroll = () => {
+  let offset = user__fullname.getBoundingClientRect()
+  if (offset.top < 2.8) {
+    mini__avatar.classList.add('show')
+  }
+  if (offset.top > 2.8) {
+    mini__avatar.classList.remove('show')
   }
 }
 
