@@ -49,7 +49,7 @@ const DATA = {
 
 const body = JSON.stringify(DATA)
 const URL = 'https://api.github.com/graphql'
-const TOKEN = 'e5794bbde490a295da5410ee5bebd624665c3bee'
+const TOKEN = '59637b94a77064c2438d0e83a6f0fabeb5c0efbe'
 
 const OPTIONS = {
   method: 'post',
