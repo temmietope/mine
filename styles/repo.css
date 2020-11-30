@@ -1,39 +1,66 @@
 .repository__wrapper {
-  width: 100%;
+  /* width: 100%;
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: 25% auto; */
   grid-gap: 2rem;
   position: relative;
   --overview-nav-height: 4.5rem;
-  padding: 0 5rem;
+  --sidebar-width: 25%;
+  --repo-padding: 3rem;
+  /* padding: 0 5rem; */
 }
 
 .overview-nav {
-  position: absolute;
+  /* position: absolute; */
+  position: sticky;
   top: 0;
   left: 0;
-  height: var(--overview-nav-height);
+  /* height: var(--overview-nav-height); */
   width: 100%;
   border-bottom: 1px solid rgba(225, 225, 232, 0.9);
   z-index: 1;
-  padding: 0 5rem;
+  background: #fff;
+  /* padding: 0 5rem; */
   display: grid;
-  grid-template-columns: 25% auto;
+  grid-template-columns: var(--sidebar-width) auto;
 }
 
 .overview-nav .pseudo {
   width: 100%;
 }
 
+.overview-nav .pseudo .mini-avatar-wrapper {
+  display: none;
+}
+.overview-nav .pseudo .mini-avatar-wrapper.show {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.overview-nav .pseudo .mini-avatar {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  margin-right: 0.6rem;
+}
+
+.overview-nav .pseudo .mini-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
 .overview-nav ul {
   display: flex;
   width: 100%;
   align-items: flex-end;
-  padding: 0 2rem;
 }
 
 .overview-nav ul li {
-  padding: 0.7rem 0.8rem;
+  padding: 0.9rem 0.8rem;
   line-height: 0;
   display: flex;
   align-items: center;
@@ -87,9 +114,14 @@
 }
 
 .repository__wrapper .sidebar {
-  width: 100%;
+  /* width: 100%; */
   padding-top: 3rem;
-  z-index: 2;
+  padding-left: var(--repo-padding);
+  padding-right: calc(var(--repo-padding) / 2);
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  width: var(--sidebar-width);
 }
 
 .repository__wrapper .sidebar .user__profilecard {
@@ -102,6 +134,7 @@
   border-radius: 50%;
   background-color: #fff;
   position: relative;
+  z-index: 2;
 }
 
 .repository__wrapper .sidebar .avatar img {
@@ -263,7 +296,12 @@
 }
 
 .repository__wrapper .repository {
-  margin-top: var(--overview-nav-height);
+  /* display: grid;
+  grid-template-columns: var(--sidebar-width) auto; */
+  margin-left: var(--sidebar-width);
+  padding-right: var(--repo-padding);
+  /* margin-top: var(--overview-nav-height); */
+  position: relative;
 }
 
 .repository__wrapper .repository .repository__find-and-create {
@@ -486,10 +524,12 @@
 
   .repository__wrapper .sidebar {
     padding: 0 1rem;
-    padding-top: 1rem;
+    padding-top: 3rem;
     z-index: 2;
     height: inherit;
     margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
   }
 
   .repository__wrapper .sidebar .user__profilecard {
@@ -558,8 +598,8 @@
   .overview-nav {
     display: block;
     padding: 0;
-    position: relative;
     height: inherit;
+    padding: 0 1rem;
     width: 100%;
     /* border: 1px solid; */
   }
@@ -574,7 +614,7 @@
 
   .repository__wrapper .repository {
     padding: 0 1rem;
-    margin-top: 0;
+    margin: 0;
   }
 
   .repository__wrapper .repository .repository__find-and-create {

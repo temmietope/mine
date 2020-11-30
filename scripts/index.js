@@ -47,7 +47,6 @@ const DATA = {
 `,
 }
 
-console.log('heloooooooooooooooooo')
 const body = JSON.stringify(DATA)
 const URL = 'https://api.github.com/graphql'
 const TOKEN = 'e5794bbde490a295da5410ee5bebd624665c3bee'
@@ -61,15 +60,18 @@ const OPTIONS = {
   body,
 }
 
-window.onload = () => {
-  if (window.innerWidth < 1200) {
+window.onresize = () => {
+  let offset = document.body.getBoundingClientRect()
+  if (offset.width < 1200) {
     document.querySelector('.pull__request').innerHTML = 'Pulls'
-  }
+  } else document.querySelector('.pull__request').innerHTML = 'Pull requests'
 }
 
 const user__avatar = document.querySelectorAll('.user__avatar')
+const avatar = document.querySelector('.avatar-img')
+const mini__avatar = document.querySelector('.mini-avatar-wrapper')
 const user__fullname = document.querySelector('.user__fullname')
-const user__username = document.querySelector('.user__username')
+const user__username = document.querySelectorAll('.user__username')
 const user__bio = document.querySelectorAll('.user__bio')
 const user__followers = document.querySelector('.followers')
 const user__following = document.querySelector('.following')
@@ -80,6 +82,16 @@ const user__website = document.querySelectorAll('.website__url')
 const user__twitter = document.querySelector('.twitter__username')
 const user__repositories = document.querySelector('.repository__list')
 const user__repocount = document.querySelector('.repo__count')
+
+window.onscroll = () => {
+  let offset = avatar.getBoundingClientRect()
+  if (offset.top < -150) {
+    mini__avatar.classList.add('show')
+  }
+  if (offset.top > -150) {
+    mini__avatar.classList.remove('show')
+  }
+}
 
 const fetchData = async () => {
   const res = await fetch(URL, OPTIONS)
@@ -111,7 +123,9 @@ const populateUI = (user) => {
   user__bio.forEach((p) => {
     p.innerHTML = bio
   })
-  user__username.innerHTML = login
+  user__username.forEach((p) => {
+    p.innerHTML = login
+  })
   user__followers.innerHTML = followers.totalCount
   user__following.innerHTML = following.totalCount
   user__stars.innerHTML = starredRepositories.totalCount
