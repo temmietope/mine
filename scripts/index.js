@@ -77,7 +77,10 @@ const fetchData = async () => {
   const res = await fetch(URL, OPTIONS)
   const data = await res.json()
   const user = data.data.viewer
-  console.log(user)
+  populateUI(user)
+}
+
+const populateUI = (user) => {
   const {
     avatarUrl,
     login,
@@ -106,68 +109,79 @@ const fetchData = async () => {
   user__website.innerHTML = websiteUrl
   user__repocount.innerHTML = repositories.totalCount
 
-  // user__repositories
-  // repositories.nodes.
   for (const node of repositories.nodes) {
     const div = document.createElement('div')
     div.className = 'repository__single'
-    div.innerHTML = `<div class="repository__single-details">
-                            <h4><a href=${node.url}>${node.name}<a></h4>
+    div.innerHTML = renderRepository(node)
+
+    user__repositories.appendChild(div)
+  }
+}
+
+const renderRepository = (node) => {
+  const {
+    url,
+    name,
+    description,
+    primaryLanguage,
+    licenseInfo,
+    stargazers,
+    createdAt,
+    updatedAt,
+  } = node
+  return `<div class="repository__single-details">
+                            <h4><a href=${url}>${name}<a></h4>
                             ${
-                              node.description
+                              description
                                 ? `
-                                <p class="summary">${node.description}
+                                <p class="summary">${description}
                                 </p>
                               `
                                 : ''
                             }
                             <div class="stars-and-date">
                                 <p class="language"><span class="language__color" style="background: ${
-                                  node && node.primaryLanguage.color
+                                  primaryLanguage.color
                                 }"></span><span
                                         class="language__text">${
-                                          node.primaryLanguage.name
+                                          primaryLanguage.name
                                         }</span></p>
                                        ${
-                                         node.licenseInfo
+                                         licenseInfo
                                            ? `
                                              <p class="license">
                                                <img src='./assets/icons/license-icon.svg' alt='icon'/>
                                                <span class="license__name">
-                                                 ${node.licenseInfo.name}
+                                                 ${licenseInfo.name}
                                                </span>
                                              </p>
                                            `
                                            : ''
                                        }
                                          ${
-                                           node.stargazers.totalCount > 0
+                                           stargazers.totalCount > 0
                                              ? `
                                              <p class="stargazers">
                                                <i class="far fa-star"></i>
                                                <span class="stargazers__text">
-                                                 ${node.stargazers.totalCount}
+                                                 ${stargazers.totalCount}
                                                </span>
                                              </p>
                                            `
                                              : ''
                                          }
                                 <p class="date">${checkDate(
-                                  node.createdAt,
-                                  node.updatedAt
+                                  createdAt,
+                                  updatedAt
                                 )}</p>
                             </div>
                         </div>
                         <div>
                             <button> <i class="far fa-star"></i>Star</button>
                         </div>`
-
-    user__repositories.appendChild(div)
-  }
 }
 
 const checkDate = (created, updated) => {
-  console.log(created,updated)
   if (created === updated) {
     return `Created on ${timeAgo(created)}`
   } else {
@@ -175,40 +189,4 @@ const checkDate = (created, updated) => {
   }
 }
 
-let timestamp = '2020-09-23T10:36:48Z'
-function timeAgo(timestamp) {
-  let date = new Date(timestamp)
-  let dateMillis = date.getTime()
-  let seconds = Math.floor((new Date() - dateMillis) / 1000)
-
-  let interval = seconds / 31536000
-
-  if (interval > 1) {
-    return Math.floor(interval) + ' years'
-  }
-  interval = seconds / 2592000
-  if (interval > 1) {
-    return `on ${date.toLocaleDateString('en-US', {
-      month: 'long',
-      day: 'numeric',
-    })}`
-  }
-  interval = seconds / 86400
-  if (interval > 1) {
-    return `${Math.floor(interval)} ${
-      Math.floor(interval) > 1 ? 'days' : 'day'
-    } ago`
-  }
-  interval = seconds / 3600
-  if (interval > 1) {
-    return Math.floor(interval) + ' hours ago'
-  }
-  interval = seconds / 60
-  if (interval > 1) {
-    return Math.floor(interval) + ' minutes ago'
-  }
-  return Math.floor(seconds) + ' seconds ago'
-}
-
-console.log(timeAgo(timestamp))
 fetchData()
