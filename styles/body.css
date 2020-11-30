@@ -14,3 +14,8 @@ ul {
 .wrapper {
   display: block;
 }
+
+button{
+  outline: none;
+  cursor: pointer;
+}

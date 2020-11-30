@@ -47,6 +47,7 @@ const DATA = {
 `,
 }
 
+console.log('heloooooooooooooooooo')
 const body = JSON.stringify(DATA)
 const URL = 'https://api.github.com/graphql'
 const TOKEN = 'e5794bbde490a295da5410ee5bebd624665c3bee'
@@ -60,16 +61,23 @@ const OPTIONS = {
   body,
 }
 
+window.onload = () => {
+  if (window.innerWidth < 1200) {
+    document.querySelector('.pull__request').innerHTML = 'Pulls'
+  }
+}
+
 const user__avatar = document.querySelectorAll('.user__avatar')
 const user__fullname = document.querySelector('.user__fullname')
 const user__username = document.querySelector('.user__username')
-const user__bio = document.querySelector('.user__bio')
+const user__bio = document.querySelectorAll('.user__bio')
 const user__followers = document.querySelector('.followers')
 const user__following = document.querySelector('.following')
 const user__stars = document.querySelector('.stars')
 const user__location = document.querySelector('.location')
 const user__company = document.querySelector('.company')
-const user__website = document.querySelector('.website__url')
+const user__website = document.querySelectorAll('.website__url')
+const user__twitter = document.querySelector('.twitter__username')
 const user__repositories = document.querySelector('.repository__list')
 const user__repocount = document.querySelector('.repo__count')
 
@@ -92,6 +100,7 @@ const populateUI = (user) => {
     company,
     location,
     websiteUrl,
+    twitterUsername,
     repositories,
   } = user
   user__avatar.src = avatarUrl
@@ -99,14 +108,21 @@ const populateUI = (user) => {
     avi.src = avatarUrl
   })
   user__fullname.innerHTML = name
-  user__bio.innerHTML = bio
+  user__bio.forEach((p) => {
+    p.innerHTML = bio
+  })
   user__username.innerHTML = login
   user__followers.innerHTML = followers.totalCount
   user__following.innerHTML = following.totalCount
   user__stars.innerHTML = starredRepositories.totalCount
   user__location.innerHTML = location
   user__company.innerHTML = company
-  user__website.innerHTML = websiteUrl
+  user__website.forEach((p) => {
+    p.innerHTML = websiteUrl
+    p.setAttribute('href', websiteUrl)
+  })
+  user__twitter.innerHTML = `@${twitterUsername}`
+  user__twitter.setAttribute('href', `https://twitter.com/${twitterUsername}`)
   user__repocount.innerHTML = repositories.totalCount
 
   for (const node of repositories.nodes) {

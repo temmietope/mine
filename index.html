@@ -18,26 +18,27 @@
         <nav>
             <div class="nav__wrapper">
                 <div class="nav__wrapper-search">
-                    <i class="fab fa-github"></i>
-                    <div class="search">
+                    <i class="fab fa-github home-icon"></i>
+                    <i class="fas fa-bars bars"></i>
+                    <div class="search nav-hide">
                         <input type="text" placeholder="Search or jump to..." />
                         <div class="box">/</div>
                     </div>
-                    <ul>
-                        <li>Pull requests</li>
+                    <ul class="nav-hide">
+                        <li class="pull__request">Pull requests</li>
                         <li>Issues</li>
                         <li>Marketplace</li>
                         <li>Explore</li>
                     </ul>
                 </div>
-
+                <i class="fab fa-github mini-home-icon"></i>
                 <div class="notification-bar">
                     <i class="far fa-bell"></i>
-                    <div class="with-arrow plus">
+                    <div class="with-arrow plus nav-hide">
                         <i class="fas fa-plus"></i>
                         <img src="./assets/icons/arrowdown-icon.svg" alt="arrow" class="arrow" />
                     </div>
-                    <div class="with-arrow">
+                    <div class="with-arrow nav-hide">
                         <img src="./assets/icons/github-icon.svg" alt="avatar" class="user__avatar" />
                         <img src="./assets/icons/arrowdown-icon.svg" alt="arrow" class="arrow" />
                     </div>
@@ -46,6 +47,82 @@
         </nav>
 
         <div class="repository__wrapper">
+
+            <!-- <div class="repository__wrapper"> -->
+            <div class="sidebar">
+                <div class="user__profilecard">
+                    <div class="avatar">
+                        <img class="user__avatar" src="./assets/icons/github-icon.svg" alt="avatar" />
+                        <div class="user__status">
+                            <i class="far fa-smile"></i>
+                            <p>Set status</p>
+                        </div>
+                    </div>
+                    <div class="sidebar__profile-summary">
+                        <h2 class="user__fullname"></h2>
+                        <p class="user__username"></p>
+                        <p class="user__bio"></p>
+                    </div>
+                </div>
+
+                <div class="mini-status">
+                    <button class="set"><i class="far fa-smile"></i>
+                        <p>Set status</p>
+                    </button>
+                    <p class="user__bio"></p>
+                </div>
+                <button class="edit-button">Edit Profile</button>
+
+                <span class="mini-link"><i class="fas fa-link"></i>
+                    <a class="website__url"></a>
+                </span>
+                <ul class="followership">
+                    <li>
+                        <i class="fas fa-users"></i>
+                        <p class="followers value">0</p>
+                        <p>followers</p>
+                    </li>
+                    <li>
+                        <p class="following value">0</p>
+                        <p>following</p>
+                    </li>
+                    <li>
+                        <i class="far fa-star"></i>
+                        <p class="stars value">0</p>
+                    </li>
+                </ul>
+
+                <ul class="location__div">
+                    <li>
+                        <i class="far fa-building"></i>
+                        <p class="company"></p>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p class="location"></p>
+                    </li>
+                    <li>
+                        <i class="fas fa-link"></i>
+                        <a class="website__url"></a>
+                    </li>
+                    <li>
+                        <i class="fab fa-twitter"></i>
+                        <a class="twitter__username"></a>
+                    </li>
+                </ul>
+                <div class="highlights">
+                    <h4>Highlights</h4>
+                    <div class="highlight__details">
+                        <i class="fas fa-asterisk"></i>
+                        <p>Arctic Code Vault Contributor</p>
+                    </div>
+
+                </div>
+                <div class="organizations highlights">
+                    <h4>Organizations</h4>
+
+                </div>
+            </div>
             <div class="overview-nav">
                 <div class="pseudo"></div>
                 <ul>
@@ -67,80 +144,16 @@
                     </li>
                 </ul>
             </div>
-            <!-- <div class="repository__wrapper"> -->
-            <div class="sidebar">
-                <div class="avatar">
-                    <img class="user__avatar" src="./assets/icons/github-icon.svg" alt="avatar" />
-                    <div class="user__status">
-                        <i class="far fa-smile"></i>
-                        <p>Set status</p>
-                    </div>
-                </div>
-                <div class="sidebar__profile-summary">
-                    <h2 class="user__fullname">Temitope Ayodele</h2>
-                    <p class="user__username">temmietope</p>
-                    <p class="user__bio">Front-end Developer</p>
-                </div>
-
-                <button class="edit-button">Edit Profile</button>
-
-                <ul class="followership">
-                    <li>
-                        <i class="fas fa-users"></i>
-                        <p class="followers value">25</p>
-                        <p>followers</p>
-                    </li>
-                    <li>
-                        <p class="following value">2</p>
-                        <p>following</p>
-                    </li>
-                    <li>
-                        <i class="far fa-star"></i>
-                        <p class="stars value">45</p>
-                    </li>
-                </ul>
-
-                <ul class="location__div">
-                    <li>
-                        <i class="far fa-building"></i>
-                        <p class="company">Voguepay</p>
-                    </li>
-                    <li>
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p class="location">Nigeria</p>
-                    </li>
-                    <li>
-                        <i class="fas fa-link"></i>
-                        <p class="website__url">http.tghrfjedsk.com</p>
-                    </li>
-                    <li>
-                        <i class="fab fa-twitter"></i>
-                        <p>@temmie_</p>
-                    </li>
-                </ul>
-                <!-- <div class="highlights">
-                    <h4>Highlights</h4>
-                    <div class="highlight__details">
-                        <i class="fas fa-asterisk"></i>
-                        <p>Arctic Code Vault Contributor</p>
-                    </div>
-
-                </div>
-                <div class="organizations highlights">
-                    <h4>Organizations</h4>
-
-                </div> -->
-            </div>
             <div class="repository">
                 <div class="repository__find-and-create">
                     <input type="text" placeholder="Find a repository..." />
-                    <button class="type">
-                        <p><strong>Type:</strong></p>
+                    <button class="type find__button">
+                        <p>Type:</p>
                         <p>All</p>
                         <img src="./assets/icons/black-arrowdown-icon.svg" alt="arrow" />
                     </button>
-                    <button class="language">
-                        <p><strong>Language:</strong></p>
+                    <button class="language find__button">
+                        <p>Language: </p>
                         <p>All</p>
                         <img src="./assets/icons/black-arrowdown-icon.svg" alt="arrow" />
                     </button>
