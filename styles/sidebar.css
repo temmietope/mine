@@ -200,17 +200,18 @@
   }
 
   .repository__wrapper .sidebar .user__profilecard {
-    display: grid;
-    grid-template-columns: 25% auto;
-    grid-column-gap: 2%;
+    display: flex;
     align-items: center;
     width: 100%;
     height: inherit;
   }
 
-  .repository__wrapper .sidebar .avatar .avater-img {
+  .repository__wrapper .sidebar .avatar .avatar-img {
     width: 100%;
     height: 100%;
+    max-width: 7.5rem;
+    max-height: 7.5rem;
+    margin-right: 1.2rem;
   }
 
   .repository__wrapper .sidebar .user__profilecard .user__bio {
