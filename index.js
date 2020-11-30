@@ -5,7 +5,7 @@ const DATA = {
     bio
     avatarUrl
     name
-    repositories(last: 20, orderBy: {field: UPDATED_AT, direction: DESC}, privacy: PUBLIC) {
+    repositories(first: 20, orderBy: {field: CREATED_AT, direction: DESC}, privacy: PUBLIC) {
       nodes {
         createdAt
         updatedAt
@@ -71,6 +71,7 @@ const user__location = document.querySelector('.location')
 const user__company = document.querySelector('.company')
 const user__website = document.querySelector('.website__url')
 const user__repositories = document.querySelector('.repository__list')
+const user__repocount = document.querySelector('.repo__count')
 
 const fetchData = async () => {
   const res = await fetch(URL, OPTIONS)
@@ -103,13 +104,15 @@ const fetchData = async () => {
   user__location.innerHTML = location
   user__company.innerHTML = company
   user__website.innerHTML = websiteUrl
+  user__repocount.innerHTML = repositories.totalCount
+
   // user__repositories
   // repositories.nodes.
   for (const node of repositories.nodes) {
     const div = document.createElement('div')
     div.className = 'repository__single'
     div.innerHTML = `<div class="repository__single-details">
-                            <h4>${node.name}</h4>
+                            <h4><a href=${node.url}>${node.name}<a></h4>
                             ${
                               node.description
                                 ? `
@@ -120,11 +123,23 @@ const fetchData = async () => {
                             }
                             <div class="stars-and-date">
                                 <p class="language"><span class="language__color" style="background: ${
-                                  node.primaryLanguage.color
+                                  node && node.primaryLanguage.color
                                 }"></span><span
                                         class="language__text">${
                                           node.primaryLanguage.name
                                         }</span></p>
+                                       ${
+                                         node.licenseInfo
+                                           ? `
+                                             <p class="license">
+                                               <img src='./assets/icons/license-icon.svg' alt='icon'/>
+                                               <span class="license__name">
+                                                 ${node.licenseInfo.name}
+                                               </span>
+                                             </p>
+                                           `
+                                           : ''
+                                       }
                                          ${
                                            node.stargazers.totalCount > 0
                                              ? `
@@ -137,7 +152,10 @@ const fetchData = async () => {
                                            `
                                              : ''
                                          }
-                                <p class="date">Updated 3 days ago</p>
+                                <p class="date">${checkDate(
+                                  node.createdAt,
+                                  node.updatedAt
+                                )}</p>
                             </div>
                         </div>
                         <div>
@@ -145,9 +163,52 @@ const fetchData = async () => {
                         </div>`
 
     user__repositories.appendChild(div)
-    // const color = document.querySelector('.language__color')
-    // color.style.backgroundColor = 'yellow'
   }
 }
 
+const checkDate = (created, updated) => {
+  console.log(created,updated)
+  if (created === updated) {
+    return `Created on ${timeAgo(created)}`
+  } else {
+    return `Updated ${timeAgo(updated)}`
+  }
+}
+
+let timestamp = '2020-09-23T10:36:48Z'
+function timeAgo(timestamp) {
+  let date = new Date(timestamp)
+  let dateMillis = date.getTime()
+  let seconds = Math.floor((new Date() - dateMillis) / 1000)
+
+  let interval = seconds / 31536000
+
+  if (interval > 1) {
+    return Math.floor(interval) + ' years'
+  }
+  interval = seconds / 2592000
+  if (interval > 1) {
+    return `on ${date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+    })}`
+  }
+  interval = seconds / 86400
+  if (interval > 1) {
+    return `${Math.floor(interval)} ${
+      Math.floor(interval) > 1 ? 'days' : 'day'
+    } ago`
+  }
+  interval = seconds / 3600
+  if (interval > 1) {
+    return Math.floor(interval) + ' hours ago'
+  }
+  interval = seconds / 60
+  if (interval > 1) {
+    return Math.floor(interval) + ' minutes ago'
+  }
+  return Math.floor(seconds) + ' seconds ago'
+}
+
+console.log(timeAgo(timestamp))
 fetchData()

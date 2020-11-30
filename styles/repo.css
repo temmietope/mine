@@ -32,30 +32,71 @@
   display: flex;
   width: 100%;
   align-items: flex-end;
+  padding: 0 2rem;
 }
 
 .overview-nav ul li {
-  padding: 0.7rem;
+  padding: 0.7rem 0.8rem;
   line-height: 0;
   display: flex;
   align-items: center;
   color: #2f363d;
   font-size: 0.9rem;
+  cursor: pointer;
+  position: relative;
 }
 
 .overview-nav ul li img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3rem;
 }
 
-.overview-nav ul li:hover {
-  border-bottom: 2.5px solid rgba(225, 225, 232, 0.9);
+.overview-nav ul li:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(225, 225, 232, 0.9);
+  /* border-bottom: 2.5px solid rgba(225, 225, 232, 0.9); */
 }
 
 .overview-nav ul li.active {
   color: #24292e;
-  border-bottom: 2.5px solid #f9826c;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.overview-nav ul li.active .repo__count {
+  border: 1px solid;
+  color: #24292e;
+  margin-left: 4px;
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--color-counter-text);
+  text-align: center;
+  background-color: rgba(209, 213, 218, 0.5);
+  border: 1px solid transparent;
+  border-radius: 2em;
+}
+
+.overview-nav ul li.active:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f9826c;
+  /* color: #24292e;
+  border-bottom: 2.5px solid #f9826c;
+  font-weight: 600; */
 }
 
 .repository__wrapper .sidebar {
@@ -70,15 +111,46 @@
   width: 18rem;
   border-radius: 50%;
   background-color: #fff;
+  position: relative;
 }
 
 .repository__wrapper .sidebar .avatar img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+}
 
-  /* object-fit: fill; */
-  /* object-fit: contain; */
+.repository__wrapper .sidebar .avatar .user__status {
+  position: absolute;
+  bottom: 2rem;
+  left: 82%;
+  border: white;
+  transition: all 0.5s;
+  border-radius: 100px 100px;
+  display: flex;
+  align-items: center;
+  padding: 0.05rem 0.4rem;
+  color: #555758ea;
+  background-color: #fff;
+  height: 1.8rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px #5557584d;
+}
+
+.repository__wrapper .sidebar .avatar .user__status p {
+  display: none;
+  margin-left: 0.3rem;
+  transition: all 0.5s;
+}
+
+.repository__wrapper .sidebar .avatar .user__status:hover p {
+  opacity: 1;
+  display: flex;
+  width: 4rem;
+}
+.repository__wrapper .sidebar .avatar .user__status:hover p:hover {
+  color: #0366d6;
 }
 
 .repository__wrapper .sidebar .sidebar__profile-summary {
@@ -87,6 +159,7 @@
 
 .repository__wrapper .sidebar .sidebar__profile-summary h2 {
   font-size: 1.625rem;
+  opacity: 1;
 }
 
 .repository__wrapper .sidebar .sidebar__profile-summary p.user__username {
@@ -211,6 +284,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.repository__wrapper .repository .repository__find-and-create button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
 }
 .repository__wrapper
   .repository
@@ -224,6 +303,23 @@
 .repository__wrapper .repository .repository__find-and-create button.green {
   background-color: #2c974b;
   color: white;
+}
+
+.repository__wrapper
+  .repository
+  .repository__find-and-create
+  button.green
+  .createnew {
+  display: flex;
+  align-items: center;
+}
+.repository__wrapper
+  .repository
+  .repository__find-and-create
+  button.green
+  .createnew
+  img {
+  margin-right: 0.3rem;
 }
 
 .repository__wrapper .repository__list .repository__single {
@@ -246,6 +342,16 @@
   color: #0366d6;
   font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1rem;
+}
+
+.repository__wrapper .repository__list .repository__single-details h4 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.repository__wrapper .repository__list .repository__single-details h4 a:hover {
+  border-bottom: 3px solid #0366d6;
 }
 
 .repository__wrapper .repository__list .repository__single-details .summary {
@@ -284,6 +390,15 @@
 
 .language__color,
 .stargazers i {
+  margin-right: 0.3rem;
+}
+
+.license {
+  display: flex;
+  align-items: center;
+}
+
+.license img {
   margin-right: 0.3rem;
 }
 

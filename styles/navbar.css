@@ -6,6 +6,7 @@ nav {
   padding: 2rem 2rem;
   background-color: #24292e;
   --margin: 1rem;
+  --hover-brightness: 0.7;
 }
 
 nav .nav__wrapper {
@@ -36,7 +37,7 @@ nav .nav__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
@@ -50,7 +51,7 @@ nav .nav__wrapper {
 
 .nav__wrapper-search .search input::placeholder {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .nav__wrapper-search .search .box {
@@ -60,19 +61,25 @@ nav .nav__wrapper {
   height: 1.2rem;
   display: grid;
   place-items: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .nav__wrapper-search ul {
   display: flex;
   list-style: none;
   font-weight: bolder;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: white;
+}
+
+i{
+  cursor: pointer;
+
 }
 
 .nav__wrapper-search ul li {
   margin-right: var(--margin);
+  cursor: pointer;
 }
 
 .notification-bar {
@@ -85,8 +92,20 @@ nav .nav__wrapper {
   margin-left: var(--margin);
 }
 
+.notification-bar .with-arrow {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.nav__wrapper-search ul li:hover, .notification-bar .with-arrow.plus:hover,
+i:hover {
+  filter: brightness(var(--hover-brightness));
+}
+
 .notification-bar i {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: white;
 }
 
